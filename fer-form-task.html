@@ -4,11 +4,40 @@
   <template>
     <style>
       :host {
-        display: block;
+          display: block;
+          /*Primary color: #3f51b5;*/
+          /*Secondary color: #ffffff;*/
+          font-size: 15px;
+          font-weight: 300;
       }
+
+
+      @media (min-width: 600px) {
+          .element-container {
+              width: 600px;
+              height: 35px;
+          }
+          input.text:focus {
+              border: 2px solid #3f51b5;
+          }
+          .save-btn {
+              border-radius: 2px;
+              background-color: #3f51b5;
+              color: #ffffff;
+              border: none;
+              padding: 1%;
+              white-space: normal;
+          }
+      }
+
     </style>
-    <h2>Hello [[prop1]]!</h2>
-    <h1>I'm Fer</h1>
+      <div class="element-container">
+      <form>
+          <label for="task-description">Task<br/>description</label>
+          <input class="text" type="text" id="task-description">
+          <input class="save-btn" type="submit" value="Save task">
+      </form>
+      </div>
   </template>
 
   <script>
