@@ -1,44 +1,60 @@
 <link rel="import" href="../polymer/polymer-element.html">
 
 <dom-module id="fer-form-task">
-  <template>
-    <style>
-      :host {
-          display: block;
-          /*Primary color: #3f51b5;*/
-          /*Secondary color: #ffffff;*/
-          font-size: 15px;
-          font-weight: 300;
-      }
-
-
-      @media (min-width: 600px) {
-          .element-container {
-              width: 600px;
-              height: 35px;
-          }
-          input.text:focus {
-              border: 2px solid #3f51b5;
-          }
-          .save-btn {
-              border-radius: 2px;
-              background-color: #3f51b5;
-              color: #ffffff;
-              border: none;
-              padding: 1%;
-              white-space: normal;
-          }
-      }
-
-    </style>
-      <div class="element-container">
-      <form>
-          <label for="task-description">Task<br/>description</label>
-          <input class="text" type="text" id="task-description">
-          <input class="save-btn" type="submit" value="Save task">
-      </form>
-      </div>
-  </template>
+    <template>
+        <style>
+            :host {
+                display: block;
+            }
+            .task-form {
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+            }
+            .task-button {
+                margin-left: auto;
+                max-width: 75px;
+                height: 38px;
+                border-radius: 4px;
+                background-color: #3f51b5;
+                color: white;
+                border: 1px solid #ccc;
+                cursor: pointer;
+            }
+            .task-input {
+                border: 1px solid #ccc;
+                height: 35px;
+                width: 100%;
+                margin: 5px 0px;
+                border-radius: 4px;
+                font-size: 20px;
+            }
+            .task-input:focus {
+                outline: none;
+                border: 3px solid #3f51b5;
+            }
+            .task-button:hover {
+                border: 2px solid black;
+            }
+            @media (min-width: 600px) {
+                .task-form {
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+                .task-input {
+                    margin: 5px;
+                }
+            }
+        </style>
+        <form class="task-form">
+            <label for="task-name" class="input-label">
+                Task description
+            </label>
+            <input type="text" name="task-name" class="task-input">
+            <button type="button" class="task-button">Save task</button>
+        </form>
+    </template>
 
   <script>
     class FerFormTask extends Polymer.Element {
