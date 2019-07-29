@@ -5,21 +5,28 @@
         <style>
             :host {
                 display: block;
+                --form-task-primary-color: var(--primary-color, #3f51b5);
+                --form-task-secundary-color:var(--secundary-color, #ffff);
+                --font-size:15px;
+                --font-weight: 300;
             }
             .task-form {
                 display: flex;
                 flex-direction: column;
                 justify-content: flex-start;
+                /*PONGO UN MIXING A TODAS LAS CLASES QUE TENGA PARA QUE SE PUEDA REFERENCIAR Y HAGAN LO QUE QUIERAN CON ELLO.*/
+                @apply --task-form;
             }
             .task-button {
                 margin-left: auto;
                 max-width: 75px;
                 height: 38px;
                 border-radius: 4px;
-                background-color: #3f51b5;
-                color: white;
+                background-color: var(--form-task-primary-color);
+                color: var(--form-task-secundary-color);
                 border: 1px solid #ccc;
                 cursor: pointer;
+                @apply --task-button;
             }
             .task-input {
                 border: 1px solid #ccc;
@@ -28,10 +35,11 @@
                 margin: 5px 0px;
                 border-radius: 4px;
                 font-size: 20px;
+                @apply --task-input;
             }
             .task-input:focus {
                 outline: none;
-                border: 3px solid #3f51b5;
+                border: 3px solid var(--form-task-primary-color);
             }
             .task-button:hover {
                 border: 2px solid black;
@@ -51,7 +59,7 @@
             <label for="task-name" class="input-label">
                 Task description
             </label>
-            <input type="text" name="task-name" class="task-input">
+            <input type="text" name="task-name" id="task-name" class="task-input">
             <button type="button" class="task-button">Save task</button>
         </form>
     </template>

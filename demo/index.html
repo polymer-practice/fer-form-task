@@ -14,6 +14,20 @@
 
     <custom-style>
       <style is="custom-style" include="demo-pages-shared-styles">
+          fer-form-task {
+              /*referenciamos como selector al custom tag y usamos la variable que teniamos definida en el componente*/
+              --primary-color:red;
+              /*CON ESTE MIXING LLAMO A LA CLASE DEL COMPONENTE Y PUEDO PONER LO QUE QUIERA*/
+              --task-form: {
+                  font-size:45px;
+              };
+              --task-button: {
+                  color:yellow;
+              };
+              --task-input: {
+                  height: 40px;
+              };
+          }
       </style>
     </custom-style>
   </head>
