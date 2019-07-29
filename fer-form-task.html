@@ -1,0 +1,29 @@
+<link rel="import" href="../polymer/polymer-element.html">
+
+<dom-module id="fer-form-task">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <h2>Hello [[prop1]]!</h2>
+    <h1>I'm Fer</h1>
+  </template>
+
+  <script>
+    class FerFormTask extends Polymer.Element {
+      static get is() { return 'fer-form-task'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'fer-form-task'
+          }
+        };
+      }
+    }
+
+    window.customElements.define(FerFormTask.is, FerFormTask);
+  </script>
+</dom-module>
