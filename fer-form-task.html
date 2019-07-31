@@ -55,13 +55,16 @@
                 }
             }
         </style>
-        <form class="task-form">
+        <form class="task-form" on-submit="onSubmit">
             <label for="task-name" class="input-label">
                 [[taskLabel]]
             </label>
-            <input type="text" name="task-name" id="task-name" class="task-input">
-            <button type="button" class="task-button">[[taskButton]]</button>
+            <input value={{inputValue::input}} type="text" name="task-name" id="task-name" class="task-input">
+            <button type="submit" class="task-button">[[taskButton]]</button>
         </form>
+        <div>
+            <h1>[[inputValue]]</h1>
+        </div>
     </template>
 
   <script>
@@ -76,8 +79,24 @@
           taskButton: {
             type: String,
             value: 'Save Task'
-          }
+          },
+          inputValue: String
         };
+      }
+      onSubmit(event){
+        event.preventDefault();
+        let customEvent = new CustomEvent(
+          'my-event',
+          {
+            bubbles: true,
+            composed: true,
+            detail: {
+              extraInfo: this.inputValue
+            }
+
+          }
+        )
+        this.dispatchEvent(customEvent)
       }
     }
 
